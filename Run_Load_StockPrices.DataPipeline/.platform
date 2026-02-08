@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "Run_Load_StockPrices"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "d7dfe9ff-3131-80ae-431b-c9fc4e167687"
+  }
+}
