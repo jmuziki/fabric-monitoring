@@ -8677,6 +8677,32 @@
           }
         ]
       }
+    },
+    {
+      "id": "b5d80d7b-8c2b-4392-8c02-ee15d79d38f4",
+      "title": "Aggregated",
+      "visualType": "table",
+      "pageId": "89b9cb0c-9c99-4f81-b2d5-299263e646cd",
+      "layout": {
+        "x": 0,
+        "y": 25,
+        "width": 24,
+        "height": 8
+      },
+      "queryRef": {
+        "kind": "query",
+        "queryId": "eeba503e-6b5b-4d2a-ab36-ac18d180c74d"
+      },
+      "visualOptions": {
+        "table__enableRenderLinks": true,
+        "colorRulesDisabled": true,
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "crossFilter": [],
+        "drillthrough": [],
+        "table__renderLinks": [],
+        "colorRules": []
+      }
     }
   ],
   "baseQueries": [
@@ -9573,10 +9599,28 @@
     {
       "kind": "kusto-trident",
       "id": "f03e11cc-ca6e-4f75-8bab-ffee10333fc2",
-      "name": "Monitoring KQL database",
+      "name": "Alpha",
       "clusterUri": "https://trd-e1bkwnx6evnruyg5jn.z6.kusto.fabric.microsoft.com",
       "database": "fdf1d9aa-8c64-4f80-ba9f-84628da165d2",
       "workspace": "834c6a2d-e10f-42e2-8ac0-6605a5d3140f",
+      "scopeId": "kusto-trident"
+    },
+    {
+      "kind": "kusto-trident",
+      "id": "afe37b29-730a-443f-85d1-d59f8a9f77c7",
+      "name": "Dev",
+      "clusterUri": "https://trd-3eafpxpagejm0nuw4z.z0.kusto.fabric.microsoft.com",
+      "database": "1d6068e7-bfe0-46e6-83ca-b09203095f4e",
+      "workspace": "fd844302-8fdd-42c1-b1ff-e35bc8e294e4",
+      "scopeId": "kusto-trident"
+    },
+    {
+      "kind": "kusto-trident",
+      "name": "Office",
+      "clusterUri": "https://trd-822mxvyzxqs4eq1wjd.z3.kusto.fabric.microsoft.com",
+      "workspace": "576c50a9-a0a4-4bb5-8b2a-13a96c54d0a6",
+      "database": "343b6580-4a53-4e8d-81e9-79cbf8dcac2d",
+      "id": "7bbd581f-ebf9-429e-a166-df44ce583db5",
       "scopeId": "kusto-trident"
     }
   ],
@@ -11601,6 +11645,15 @@
         "_endTime",
         "_startTime"
       ]
+    },
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "f03e11cc-ca6e-4f75-8bab-ffee10333fc2"
+      },
+      "text": "// let _WorkspaceName = dynamic(null);\n// let _endTime = datetime(2026-02-09T21:01:32Z);\n// let _startTime = datetime(2026-02-09T09:01:32Z);\n// let _utcOffset = '0';\n// // baseQuery _baseItemJobEventLogs_TopItems\n// let _baseItemJobEventLogs_TopItems = () {\n//     // cluster('https://trd-y863x8007fp9vy6w6e.z0.kusto.fabric.microsoft.com').database('Hub').AllItemJobEventLogs()\n//     AllItemJobEventLogs()\n//     | where Timestamp between (['_startTime']+totimespan(_utcOffset) .. ['_endTime']+totimespan(_utcOffset))\n//     | where isempty(['_WorkspaceName']) or WorkspaceName in (['_WorkspaceName'])\n//     | summarize \n//         TotalRuns = count(),\n//         Failures = countif(JobStatus == \"Failed\"),\n//         AvgDurationMs = avg(DurationMs),\n//         MaxDurationMs = max(DurationMs),\n//         FailRate = round(100.0 * countif(JobStatus == \"Failed\") / count(), 2)\n//       by Workspace, ItemName, ItemKind, ItemId\n//     | order by TotalRuns desc\n//     | take 50\n// };\n// _baseItemJobEventLogs_TopItems\n\n print current_database()",
+      "id": "eeba503e-6b5b-4d2a-ab36-ac18d180c74d",
+      "usedVariables": []
     },
     {
       "id": "f7c6ddda-c8bc-4555-82b9-c46ea78b39a0",

@@ -2,8 +2,8 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
     "type": "KQLDashboard",
-    "displayName": "Workspace Monitoring",
-    "description": "Workspace Monitoring"
+    "displayName": "Workspace Monitoring Dashboard",
+    "description": "Workspace Monitoring Dashboard"
   },
   "config": {
     "version": "2.0",
