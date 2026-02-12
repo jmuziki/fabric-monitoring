@@ -1,0 +1,70 @@
+[
+  {
+    "uniqueIdentifier": "001d5091-89fd-4654-abfd-0f8081e72bbb",
+    "payload": {
+      "name": "Monitoring KQL database",
+      "description": "Container Description",
+      "type": "kqlQueries"
+    },
+    "type": "container-v1"
+  },
+  {
+    "uniqueIdentifier": "3c468639-daa5-4432-ad73-0499758f3c2d",
+    "payload": {
+      "name": "Monitoring Eventhouse event",
+      "runSettings": {
+        "executionIntervalInSeconds": 300
+      },
+      "query": {
+        "queryString": "ItemJobEventLogs\r\n| extend SecondsAgo = datetime_diff('second', now(), ingestion_time())\r\n| where JobType == 'Pipeline' and JobStatus == 'Failed' and SecondsAgo <= 540\r\n| order by Timestamp desc\r\n| project Timestamp, SecondsAgo, ItemName, WorkspaceName, JobScheduleTime, JobStartTime, JobEndTime, JobStatus"
+      },
+      "eventhouseItem": {
+        "itemId": "fdf1d9aa-8c64-4f80-ba9f-84628da165d2",
+        "workspaceId": "834c6a2d-e10f-42e2-8ac0-6605a5d3140f",
+        "itemType": "KustoDatabase"
+      },
+      "queryParameters": [],
+      "metadata": {
+        "workspaceId": "834c6a2d-e10f-42e2-8ac0-6605a5d3140f",
+        "querySetId": "fdf1d9aa-8c64-4f80-ba9f-84628da165d2",
+        "queryId": "499b7006-32f8-4f54-81da-e9520f6f9828"
+      },
+      "parentContainer": {
+        "targetUniqueIdentifier": "001d5091-89fd-4654-abfd-0f8081e72bbb"
+      }
+    },
+    "type": "kqlSource-v1"
+  },
+  {
+    "uniqueIdentifier": "c95238e1-29bd-4025-a467-d56c8e7a6ec8",
+    "payload": {
+      "name": "Monitoring Eventhouse event",
+      "parentContainer": {
+        "targetUniqueIdentifier": "001d5091-89fd-4654-abfd-0f8081e72bbb"
+      },
+      "definition": {
+        "type": "Event",
+        "instance": "{\"steps\":[{\"id\":\"7e534090-a62f-4921-8b06-0b1408c2d501\",\"name\":\"SourceEventStep\",\"rows\":[{\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"3c468639-daa5-4432-ad73-0499758f3c2d\"}],\"kind\":\"SourceReference\",\"name\":\"SourceSelector\"}]}],\"templateId\":\"SourceEvent\",\"templateVersion\":\"1.2.3\"}"
+      }
+    },
+    "type": "timeSeriesView-v1"
+  },
+  {
+    "uniqueIdentifier": "43f6b729-99c1-42be-82c0-2d9dcec8060e",
+    "payload": {
+      "name": "Failed Pipeline",
+      "parentContainer": {
+        "targetUniqueIdentifier": "001d5091-89fd-4654-abfd-0f8081e72bbb"
+      },
+      "definition": {
+        "type": "Rule",
+        "instance": "{\"steps\":[{\"id\":\"2b3d8104-120d-4933-84ff-811c9edb6011\",\"name\":\"FieldsDefaultsStep\",\"rows\":[{\"arguments\":[{\"arguments\":[{\"name\":\"entityId\",\"type\":\"string\",\"value\":\"c95238e1-29bd-4025-a467-d56c8e7a6ec8\"}],\"kind\":\"EventReference\",\"name\":\"event\",\"type\":\"complex\"}],\"kind\":\"Event\",\"name\":\"EventSelector\"}]},{\"id\":\"ab5ca266-bfa8-4dec-b703-5a7acd5a74dd\",\"name\":\"EventDetectStep\",\"rows\":[{\"arguments\":[],\"kind\":\"OnEveryValue\",\"name\":\"OnEveryValue\"}]},{\"id\":\"e74a9c84-5b13-43a9-8b32-76b30e8c01bd\",\"name\":\"ActStep\",\"rows\":[{\"kind\":\"TeamsMessage\",\"name\":\"TeamsBinding\",\"arguments\":[{\"name\":\"messageLocale\",\"type\":\"string\",\"value\":\"en-us\"},{\"name\":\"recipients\",\"type\":\"array\",\"values\":[{\"type\":\"string\",\"value\":\"joemuziki@microsoft.com\"}]},{\"name\":\"headline\",\"type\":\"array\",\"values\":[{\"name\":\"string\",\"type\":\"string\",\"value\":\"​\"},{\"arguments\":[{\"name\":\"fieldName\",\"type\":\"string\",\"value\":\"WorkspaceName\"}],\"kind\":\"EventFieldReference\",\"type\":\"complex\"},{\"name\":\"string\",\"type\":\"string\",\"value\":\" \"},{\"arguments\":[{\"name\":\"fieldName\",\"type\":\"string\",\"value\":\"ItemName\"}],\"kind\":\"EventFieldReference\",\"type\":\"complex\"},{\"name\":\"string\",\"type\":\"string\",\"value\":\" failed\"}]},{\"name\":\"optionalMessage\",\"type\":\"array\",\"values\":[{\"name\":\"string\",\"type\":\"string\",\"value\":\"One or more alerts were fired.\"}]},{\"name\":\"additionalInformation\",\"type\":\"array\",\"values\":[{\"arguments\":[{\"name\":\"name\",\"type\":\"string\",\"value\":\"JobScheduleTime\"},{\"arguments\":[{\"name\":\"fieldName\",\"type\":\"string\",\"value\":\"JobScheduleTime\"}],\"kind\":\"EventFieldReference\",\"name\":\"reference\",\"type\":\"complexReference\"}],\"kind\":\"NameReferencePair\",\"type\":\"complex\"},{\"arguments\":[{\"name\":\"name\",\"type\":\"string\",\"value\":\"JobStartTime\"},{\"arguments\":[{\"name\":\"fieldName\",\"type\":\"string\",\"value\":\"JobStartTime\"}],\"kind\":\"EventFieldReference\",\"name\":\"reference\",\"type\":\"complexReference\"}],\"kind\":\"NameReferencePair\",\"type\":\"complex\"},{\"arguments\":[{\"name\":\"name\",\"type\":\"string\",\"value\":\"JobEndTime\"},{\"arguments\":[{\"name\":\"fieldName\",\"type\":\"string\",\"value\":\"JobEndTime\"}],\"kind\":\"EventFieldReference\",\"name\":\"reference\",\"type\":\"complexReference\"}],\"kind\":\"NameReferencePair\",\"type\":\"complex\"}]}]}]}],\"templateId\":\"EventTrigger\",\"templateVersion\":\"1.2.3\"}",
+        "settings": {
+          "shouldRun": true,
+          "shouldApplyRuleOnUpdate": true
+        }
+      }
+    },
+    "type": "timeSeriesView-v1"
+  }
+]
