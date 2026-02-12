@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Reflex",
+    "displayName": "All Failed Pipelines",
+    "description": "Reflex Project created from Trigger Pane"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "4e7588a5-accf-a93f-40ac-64a903f1df66"
+  }
+}
