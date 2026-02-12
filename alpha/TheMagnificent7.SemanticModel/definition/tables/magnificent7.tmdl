@@ -1,0 +1,475 @@
+table magnificent7
+	lineageTag: dd17ad78-c082-4fa2-80b0-acbf9447c805
+	sourceLineageTag: [tabular].[magnificent7]
+
+	column Symbol
+		dataType: string
+		lineageTag: e3e3422d-4db3-4438-8916-f3cd1c2b70f3
+		sourceLineageTag: Symbol
+		summarizeBy: none
+		sourceColumn: Symbol
+
+		annotation SummarizationSetBy = Automatic
+
+	column CompanyName
+		dataType: string
+		lineageTag: a0365a55-aad0-447b-b392-a0742a7d3f76
+		sourceLineageTag: CompanyName
+		summarizeBy: none
+		sourceColumn: CompanyName
+
+		annotation SummarizationSetBy = Automatic
+
+	column GICSSector
+		dataType: string
+		lineageTag: d60f13e4-057a-45e1-be11-bbc19f4a18dd
+		sourceLineageTag: GICSSector
+		summarizeBy: none
+		sourceColumn: GICSSector
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 9b77a900-080d-40b8-9c14-6792fcc82435
+		sourceLineageTag: Date
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 582b2d61-5787-4670-bcb9-c093d5b7d36b
+		sourceLineageTag: Year
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		dataType: int64
+		formatString: 0
+		lineageTag: 2c864df2-52fb-47fc-bf46-2fd940a5b6c8
+		sourceLineageTag: Quarter
+		summarizeBy: sum
+		sourceColumn: Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		dataType: int64
+		formatString: 0
+		lineageTag: 1dd16968-dcea-47b6-b660-f3caf5d62bf3
+		sourceLineageTag: Month
+		summarizeBy: sum
+		sourceColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthName
+		dataType: string
+		lineageTag: f2998392-cf78-4576-9c29-ee4d3fb915df
+		sourceLineageTag: MonthName
+		summarizeBy: none
+		sourceColumn: MonthName
+
+		annotation SummarizationSetBy = Automatic
+
+	column WeekOfYear
+		dataType: int64
+		formatString: 0
+		lineageTag: 8a566dc7-0c30-43eb-8ae9-f1eeda623d33
+		sourceLineageTag: WeekOfYear
+		summarizeBy: sum
+		sourceColumn: WeekOfYear
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayOfWeek
+		dataType: int64
+		formatString: 0
+		lineageTag: 8b25546a-7787-40b4-9119-1c4b0f28b777
+		sourceLineageTag: DayOfWeek
+		summarizeBy: sum
+		sourceColumn: DayOfWeek
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayName
+		dataType: string
+		lineageTag: 2bbda120-01bb-4911-b307-615476eb4a8b
+		sourceLineageTag: DayName
+		summarizeBy: none
+		sourceColumn: DayName
+
+		annotation SummarizationSetBy = Automatic
+
+	column Open
+		dataType: double
+		lineageTag: b8073df9-58aa-4a56-bd79-428f74c3188a
+		sourceLineageTag: Open
+		summarizeBy: sum
+		sourceColumn: Open
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column High
+		dataType: double
+		lineageTag: 07d24f3c-c49f-433a-b704-3d80a1b6082e
+		sourceLineageTag: High
+		summarizeBy: sum
+		sourceColumn: High
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Low
+		dataType: double
+		lineageTag: 88d83456-51c9-4489-934e-c5627cdffcbd
+		sourceLineageTag: Low
+		summarizeBy: sum
+		sourceColumn: Low
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Close
+		dataType: double
+		lineageTag: 0492596b-8e9f-44c5-9c97-f7a7e59a1455
+		sourceLineageTag: Close
+		summarizeBy: sum
+		sourceColumn: Close
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Volume
+		dataType: int64
+		formatString: 0
+		lineageTag: 711e26ed-8635-49b8-bd2a-331abe22b2d8
+		sourceLineageTag: Volume
+		summarizeBy: sum
+		sourceColumn: Volume
+
+		annotation SummarizationSetBy = Automatic
+
+	column VolMA20
+		dataType: double
+		lineageTag: 12360b45-8e4f-455e-943a-ce0e759c1c77
+		sourceLineageTag: VolMA20
+		summarizeBy: sum
+		sourceColumn: VolMA20
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VolumeZ20
+		dataType: double
+		lineageTag: 567eda31-cf4c-4432-b119-5e8caae7c4f9
+		sourceLineageTag: VolumeZ20
+		summarizeBy: sum
+		sourceColumn: VolumeZ20
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DailyReturn
+		dataType: double
+		lineageTag: 4b10620c-1cbb-4f7b-9e61-ab48bff07a3e
+		sourceLineageTag: DailyReturn
+		summarizeBy: sum
+		sourceColumn: DailyReturn
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LogReturn
+		dataType: double
+		lineageTag: 5564384d-d303-4264-9e42-3e9d84e25830
+		sourceLineageTag: LogReturn
+		summarizeBy: sum
+		sourceColumn: LogReturn
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CumReturn
+		dataType: double
+		lineageTag: 47353e5a-66b0-42dc-8dab-ee9d3c05abe7
+		sourceLineageTag: CumReturn
+		summarizeBy: sum
+		sourceColumn: CumReturn
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column YTDReturn
+		dataType: double
+		lineageTag: 84635ac2-a76d-4875-9f10-d5c6b8fd5f83
+		sourceLineageTag: YTDReturn
+		summarizeBy: sum
+		sourceColumn: YTDReturn
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Vol20D_Ann
+		dataType: double
+		lineageTag: 79b04576-272e-4146-a526-a492a84f3195
+		sourceLineageTag: Vol20D_Ann
+		summarizeBy: sum
+		sourceColumn: Vol20D_Ann
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SMA20
+		dataType: double
+		lineageTag: 14e4105c-e4cf-4abe-8fcf-f913ba7918fc
+		sourceLineageTag: SMA20
+		summarizeBy: sum
+		sourceColumn: SMA20
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SMA50
+		dataType: double
+		lineageTag: e91acdb1-c5c8-44e3-86a6-06faaffdce18
+		sourceLineageTag: SMA50
+		summarizeBy: sum
+		sourceColumn: SMA50
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column SMA200
+		dataType: double
+		lineageTag: a1f3f3f0-2ec4-4ad7-89c1-23f0b5f94d04
+		sourceLineageTag: SMA200
+		summarizeBy: sum
+		sourceColumn: SMA200
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column BBandUpper20
+		dataType: double
+		lineageTag: cedd1ada-36b7-4c68-87b9-e2b5d3216659
+		sourceLineageTag: BBandUpper20
+		summarizeBy: sum
+		sourceColumn: BBandUpper20
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column BBandLower20
+		dataType: double
+		lineageTag: 537f2772-7506-4f0e-876b-342b2063559c
+		sourceLineageTag: BBandLower20
+		summarizeBy: sum
+		sourceColumn: BBandLower20
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PriceVsSMA50
+		dataType: double
+		lineageTag: f4ed0ca7-8a45-4a0b-b9b8-bbdda86da3bf
+		sourceLineageTag: PriceVsSMA50
+		summarizeBy: sum
+		sourceColumn: PriceVsSMA50
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PriceVsSMA200
+		dataType: double
+		lineageTag: f3b84238-b220-48e7-be0c-f395e6bd556f
+		sourceLineageTag: PriceVsSMA200
+		summarizeBy: sum
+		sourceColumn: PriceVsSMA200
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RollMax252
+		dataType: double
+		lineageTag: 19524ab8-033b-4f11-a8d8-23fae859e68a
+		sourceLineageTag: RollMax252
+		summarizeBy: sum
+		sourceColumn: RollMax252
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RollMin252
+		dataType: double
+		lineageTag: 07546998-c310-49cd-ba77-41a2b4191f01
+		sourceLineageTag: RollMin252
+		summarizeBy: sum
+		sourceColumn: RollMin252
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Is52WHigh
+		dataType: int64
+		formatString: 0
+		lineageTag: 82ef4aa5-f0b9-42e4-ba5b-31f1a08f4911
+		sourceLineageTag: Is52WHigh
+		summarizeBy: sum
+		sourceColumn: Is52WHigh
+
+		annotation SummarizationSetBy = Automatic
+
+	column Is52WLow
+		dataType: int64
+		formatString: 0
+		lineageTag: 7c646f53-c24c-4bd5-8095-85612ec07c05
+		sourceLineageTag: Is52WLow
+		summarizeBy: sum
+		sourceColumn: Is52WLow
+
+		annotation SummarizationSetBy = Automatic
+
+	column PctTo52WHigh
+		dataType: double
+		lineageTag: 6671f0dc-1a30-4a66-bc78-385375930c2b
+		sourceLineageTag: PctTo52WHigh
+		summarizeBy: sum
+		sourceColumn: PctTo52WHigh
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PctAbove52WLow
+		dataType: double
+		lineageTag: 37f33984-b602-486d-9430-f5d072cb40eb
+		sourceLineageTag: PctAbove52WLow
+		summarizeBy: sum
+		sourceColumn: PctAbove52WLow
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column RunningMax
+		dataType: double
+		lineageTag: 4a9ee5af-bb6a-4b18-bcdf-c016b2c52a15
+		sourceLineageTag: RunningMax
+		summarizeBy: sum
+		sourceColumn: RunningMax
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Drawdown
+		dataType: double
+		lineageTag: 7f31bfda-fa08-4db4-8c20-eec215815e6f
+		sourceLineageTag: Drawdown
+		summarizeBy: sum
+		sourceColumn: Drawdown
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MaxDrawdownToDate
+		dataType: double
+		lineageTag: 0ec273f7-a217-4216-a48e-1e4bada4351a
+		sourceLineageTag: MaxDrawdownToDate
+		summarizeBy: sum
+		sourceColumn: MaxDrawdownToDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column M7IndexReturn
+		dataType: double
+		lineageTag: 851ab0a6-64f9-4b56-b51e-21bcfc4dc4b8
+		sourceLineageTag: M7IndexReturn
+		summarizeBy: sum
+		sourceColumn: M7IndexReturn
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column M7IndexCumReturn
+		dataType: double
+		lineageTag: 992b9485-02aa-4e32-bc30-06f4051ff8ca
+		sourceLineageTag: M7IndexCumReturn
+		summarizeBy: sum
+		sourceColumn: M7IndexCumReturn
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ExcessReturn
+		dataType: double
+		lineageTag: 125ef857-bbfb-4ba0-9c45-e3e127f7cd62
+		sourceLineageTag: ExcessReturn
+		summarizeBy: sum
+		sourceColumn: ExcessReturn
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ExcessReturn20D
+		dataType: double
+		lineageTag: 59d6ba39-906b-4f4e-8533-207f332cf6f6
+		sourceLineageTag: ExcessReturn20D
+		summarizeBy: sum
+		sourceColumn: ExcessReturn20D
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column IsLatest
+		dataType: int64
+		formatString: 0
+		lineageTag: 4838d361-0eab-45e7-a683-dc1faa910ae0
+		sourceLineageTag: IsLatest
+		summarizeBy: sum
+		sourceColumn: IsLatest
+
+		annotation SummarizationSetBy = Automatic
+
+	partition magnificent7 = entity
+		mode: directLake
+		source
+			entityName: magnificent7
+			schemaName: tabular
+			expressionSource: 'DirectLake - Gold'
+
