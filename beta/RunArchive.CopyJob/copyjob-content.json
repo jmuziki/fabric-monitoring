@@ -1,0 +1,65 @@
+{
+  "properties": {
+    "jobMode": "Batch",
+    "source": {
+      "type": "AzureDataExplorerTable",
+      "connectionSettings": {
+        "type": "AzureDataExplorer",
+        "typeProperties": {
+          "database": "b4ddbe63-c26a-43d0-a46e-0b702f9610f5"
+        },
+        "externalReferences": {
+          "connection": "12960982-98be-4a68-bca1-13cecfde0e00"
+        }
+      }
+    },
+    "destination": {
+      "type": "LakehouseTable",
+      "connectionSettings": {
+        "type": "Lakehouse",
+        "typeProperties": {
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "artifactId": "d287f682-7c49-a5f9-414e-c08ff4bcdb74",
+          "rootFolder": "Tables"
+        }
+      }
+    },
+    "policy": {
+      "timeout": "0.12:00:00"
+    }
+  },
+  "activities": [
+    {
+      "id": "e2b5f3dc-bfca-482b-8a25-9252318df4bb",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "querySettings": {
+              "queryName": "AllItemJobEventLogsQuery",
+              "query": "AllItemJobEventLogs()"
+            }
+          },
+          "noTruncation": true
+        },
+        "destination": {
+          "writeBehavior": "Append",
+          "datasetSettings": {
+            "schema": "dbo",
+            "table": "AllItemJobEventLogs_Archive"
+          },
+          "applyVOrder": false
+        },
+        "enableStaging": false,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    }
+  ]
+}
