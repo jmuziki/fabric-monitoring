@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "KQLDashboard",
+    "displayName": "Built-in Semantic Model Monitoring Dashboard"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "139fc276-eba6-8c46-45b5-45cad58c68d2"
+  }
+}
