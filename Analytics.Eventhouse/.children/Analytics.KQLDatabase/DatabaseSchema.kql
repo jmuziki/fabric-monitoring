@@ -18,6 +18,21 @@
             cluster('https://trd-3eafpxpagejm0nuw4z.z0.kusto.fabric.microsoft.com').database('Monitoring Eventhouse').ItemJobEventLogs
             | where Timestamp > ago(30d)
             | extend Workspace = "Dev"
+        ),
+        (
+            cluster('https://trd-aj2sms35x185rsbm9f.z4.kusto.fabric.microsoft.com').database('Monitoring Eventhouse').ItemJobEventLogs
+            | where Timestamp > ago(30d)
+            | extend Workspace = "Delta"
+        ),
+        (
+            cluster('https://trd-nau1gd3cbjh4yypt49.z6.kusto.fabric.microsoft.com').database('Monitoring Eventhouse').ItemJobEventLogs
+            | where Timestamp > ago(30d)
+            | extend Workspace = "Sigma"
+        ),
+        (
+            cluster('https://trd-3kszn24nkd13d3zz2n.z8.kusto.fabric.microsoft.com').database('Monitoring Eventhouse').ItemJobEventLogs
+            | where Timestamp > ago(30d)
+            | extend Workspace = "Gamma"
         )
 }
 .create-or-alter function with (folder = "VirtualTables", docstring = "Unified monitoring semantic model logs from all workspace monitoring databases", skipvalidation = "true", view = true) AllSemanticModelLogs() {
@@ -36,6 +51,21 @@
             cluster('https://trd-3eafpxpagejm0nuw4z.z0.kusto.fabric.microsoft.com').database('Monitoring Eventhouse').SemanticModelLogs
             | where Timestamp > ago(30d)
             | extend Workspace = "Dev"
+        ),
+        (
+            cluster('https://trd-aj2sms35x185rsbm9f.z4.kusto.fabric.microsoft.com').database('Monitoring Eventhouse').SemanticModelLogs
+            | where Timestamp > ago(30d)
+            | extend Workspace = "Delta"
+        ),
+        (
+            cluster('https://trd-nau1gd3cbjh4yypt49.z6.kusto.fabric.microsoft.com').database('Monitoring Eventhouse').SemanticModelLogs
+            | where Timestamp > ago(30d)
+            | extend Workspace = "Sigma"
+        ),
+        (
+            cluster('https://trd-3kszn24nkd13d3zz2n.z8.kusto.fabric.microsoft.com').database('Monitoring Eventhouse').SemanticModelLogs
+            | where Timestamp > ago(30d)
+            | extend Workspace = "Gamma"
         )
 }
 .create-or-alter function with (folder = "VirtualTables", docstring = "Unified EventhouseQueryLogs from all workspace monitoring databases", skipvalidation = "true", view = true) AllEventhouseQueryLogs() {
@@ -54,6 +84,21 @@
             cluster('https://trd-3eafpxpagejm0nuw4z.z0.kusto.fabric.microsoft.com').database('Monitoring Eventhouse').EventhouseQueryLogs
             | where Timestamp > ago(30d)
             | extend Workspace = "Dev"
+        ),
+        (
+            cluster('https://trd-aj2sms35x185rsbm9f.z4.kusto.fabric.microsoft.com').database('Monitoring Eventhouse').EventhouseQueryLogs
+            | where Timestamp > ago(30d)
+            | extend Workspace = "Delta"
+        ),
+        (
+            cluster('https://trd-nau1gd3cbjh4yypt49.z6.kusto.fabric.microsoft.com').database('Monitoring Eventhouse').EventhouseQueryLogs
+            | where Timestamp > ago(30d)
+            | extend Workspace = "Sigma"
+        ),
+        (
+            cluster('https://trd-3kszn24nkd13d3zz2n.z8.kusto.fabric.microsoft.com').database('Monitoring Eventhouse').EventhouseQueryLogs
+            | where Timestamp > ago(30d)
+            | extend Workspace = "Gamma"
         )
 }
 .create-or-alter function with (folder = "VirtualTables", docstring = "Unified EventhouseMetrics from all workspace monitoring databases", skipvalidation = "true", view = true) AllEventhouseMetrics() {
@@ -72,5 +117,20 @@
             cluster('https://trd-3eafpxpagejm0nuw4z.z0.kusto.fabric.microsoft.com').database('Monitoring Eventhouse').EventhouseMetrics
             | where Timestamp > ago(30d)
             | extend Workspace = "Dev"
+        ),
+        (
+            cluster('https://trd-aj2sms35x185rsbm9f.z4.kusto.fabric.microsoft.com').database('Monitoring Eventhouse').EventhouseMetrics
+            | where Timestamp > ago(30d)
+            | extend Workspace = "Delta"
+        ),
+        (
+            cluster('https://trd-nau1gd3cbjh4yypt49.z6.kusto.fabric.microsoft.com').database('Monitoring Eventhouse').EventhouseMetrics
+            | where Timestamp > ago(30d)
+            | extend Workspace = "Sigma"
+        ),
+        (
+            cluster('https://trd-3kszn24nkd13d3zz2n.z8.kusto.fabric.microsoft.com').database('Monitoring Eventhouse').EventhouseMetrics
+            | where Timestamp > ago(30d)
+            | extend Workspace = "Gamma"
         )
 }

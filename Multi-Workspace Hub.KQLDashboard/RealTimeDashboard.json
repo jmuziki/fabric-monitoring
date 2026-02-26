@@ -1,5 +1,5 @@
 {
-  "schema_version": 68,
+  "schema_version": 69,
   "pagesNavWidth": 218,
   "tiles": [
     {
@@ -9806,10 +9806,6 @@
       "id": "87dca48e-424c-4846-b531-46c13bc2ed08"
     },
     {
-      "name": "Help",
-      "id": "89d11a49-cfdc-4538-a872-cbe0ed12b643"
-    },
-    {
       "id": "89b9cb0c-9c99-4f81-b2d5-299263e646cd",
       "name": "Item Jobs Overview"
     },
@@ -9828,6 +9824,10 @@
     {
       "id": "d8b097c3-7cbc-43f0-bd41-9100dfffe0dc",
       "name": "- IJ | Dependency Analysis"
+    },
+    {
+      "name": "Help",
+      "id": "89d11a49-cfdc-4538-a872-cbe0ed12b643"
     }
   ],
   "queries": [
