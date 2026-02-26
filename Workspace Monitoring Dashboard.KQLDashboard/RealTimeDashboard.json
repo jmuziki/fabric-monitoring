@@ -1,5 +1,5 @@
 {
-  "schema_version": 68,
+  "schema_version": 69,
   "pagesNavWidth": 218,
   "tiles": [
     {
@@ -9625,10 +9625,28 @@
     },
     {
       "kind": "kusto-trident",
+      "id": "cb1f92ba-50e5-4e4b-a3d3-76207e9ac60b",
       "name": "Delta",
       "clusterUri": "https://trd-aj2sms35x185rsbm9f.z4.kusto.fabric.microsoft.com",
-      "id": "cb1f92ba-50e5-4e4b-a3d3-76207e9ac60b",
       "database": "72f7adcb-87da-4127-963d-ac7367def6ef",
+      "workspace": "00000000-0000-0000-0000-000000000000",
+      "scopeId": "kusto-trident"
+    },
+    {
+      "kind": "kusto-trident",
+      "name": "Gamma",
+      "clusterUri": "https://trd-3kszn24nkd13d3zz2n.z8.kusto.fabric.microsoft.com",
+      "id": "5972b800-5dd3-4db1-9790-696ca13ff466",
+      "database": "c69becbd-9473-449b-b19a-bf47d3dfe101",
+      "workspace": "00000000-0000-0000-0000-000000000000",
+      "scopeId": "kusto-trident"
+    },
+    {
+      "kind": "kusto-trident",
+      "name": "Sigma",
+      "clusterUri": "https://trd-nau1gd3cbjh4yypt49.z6.kusto.fabric.microsoft.com",
+      "id": "0fd6096b-a8f4-4269-bac5-d6befbe3bf09",
+      "database": "86c9c4b7-9178-4da9-a1e3-c807d2992006",
       "workspace": "00000000-0000-0000-0000-000000000000",
       "scopeId": "kusto-trident"
     }
