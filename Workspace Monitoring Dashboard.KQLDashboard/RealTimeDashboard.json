@@ -7389,7 +7389,7 @@
       "visualOptions": {
         "colorRules": [
           {
-            "id": "f4f52ce9-cc35-4407-a23b-02ead7716038",
+            "id": "9d167bb4-ae5a-45d4-9962-00c0ad93857c",
             "ruleType": "colorByValue",
             "ruleName": "FailureRate",
             "applyTo": "cells",
@@ -7401,7 +7401,7 @@
             "visualType": "table"
           },
           {
-            "id": "31ca6c0f-a334-484e-9f15-3a770abdd47b",
+            "id": "302870f6-7f00-4cfa-a364-de259544f613",
             "ruleType": "colorByValue",
             "ruleName": "SuccessRate",
             "applyTo": "cells",
@@ -7413,7 +7413,7 @@
             "visualType": "table"
           },
           {
-            "id": "d6a3aa71-1ceb-41ed-af28-0a6c0a9121c7",
+            "id": "cabea76f-b079-4469-a5d8-f21dfca2659b",
             "ruleType": "colorByValue",
             "ruleName": "TotalRuns",
             "applyTo": "cells",
@@ -7424,7 +7424,8 @@
             "reverseTheme": false,
             "visualType": "table"
           }
-        ]
+        ],
+        "colorRulesDisabled": false
       }
     },
     {
@@ -7583,7 +7584,7 @@
         "colorRulesDisabled": false,
         "colorRules": [
           {
-            "id": "4d7b1812-a58f-41c2-b755-336762fe8f47",
+            "id": "a482791f-5c07-4911-8f78-e0393a3fd487",
             "ruleType": "colorByValue",
             "ruleName": "FailureCount",
             "applyTo": "cells",
@@ -7595,7 +7596,7 @@
             "visualType": "table"
           },
           {
-            "id": "2f479718-108e-401e-98e0-634b9e8615ec",
+            "id": "8fe17d54-f50f-452f-beb0-af9baf19678b",
             "ruleType": "colorByValue",
             "ruleName": "FailureRate",
             "applyTo": "cells",
@@ -7722,26 +7723,26 @@
         "colorRulesDisabled": false,
         "colorRules": [
           {
-            "id": "fda7ba5d-2517-439b-905c-9e7773bd561b",
+            "id": "8d321514-6f76-45a7-906d-fc4dc5bdf0a2",
             "ruleType": "colorByValue",
             "ruleName": "AvgDuration",
             "applyTo": "cells",
             "column": "AvgDuration",
-            "themeName": "cold",
+            "themeName": "warm",
             "maxValue": null,
-            "minValue": null,
+            "minValue": "0",
             "reverseTheme": false,
             "visualType": "table"
           },
           {
-            "id": "e120367a-f7a3-4d8c-969b-7fb8e413fe2a",
+            "id": "e307ba95-82a3-462d-be89-50a70cbd24cc",
             "ruleType": "colorByValue",
             "ruleName": "P95Duration",
             "applyTo": "cells",
             "column": "P95Duration",
             "themeName": "warm",
             "maxValue": null,
-            "minValue": null,
+            "minValue": "0",
             "reverseTheme": false,
             "visualType": "table"
           }
@@ -7767,15 +7768,38 @@
         "colorRulesDisabled": false,
         "colorRules": [
           {
-            "id": "7ee2c8be-872d-4bd2-860a-a8db6399c6ec",
+            "id": "a6bd8e5d-009f-4b1d-b98b-9c701d7f0bc0",
             "ruleType": "colorByValue",
-            "ruleName": "Duration",
+            "ruleName": "DurationMins",
             "applyTo": "cells",
-            "column": "Duration",
-            "themeName": "red",
+            "column": "DurationMins",
+            "themeName": "warm",
             "maxValue": null,
             "minValue": "0",
             "reverseTheme": false,
+            "visualType": "table"
+          },
+          {
+            "id": "dda3b7cc-6933-4758-ade2-74d3957bcd10",
+            "ruleType": "colorByCondition",
+            "applyToColumn": "JobStatus",
+            "hideText": false,
+            "applyTo": "cells",
+            "conditions": [
+              {
+                "operator": "==",
+                "column": "JobStatus",
+                "values": [
+                  "Failed"
+                ]
+              }
+            ],
+            "chainingOperator": "and",
+            "colorStyle": "bold",
+            "color": "red",
+            "tag": "",
+            "icon": "warning",
+            "ruleName": "FailedStatusAlert",
             "visualType": "table"
           }
         ]
@@ -8001,26 +8025,50 @@
         "colorRulesDisabled": false,
         "colorRules": [
           {
-            "id": "ab7d9574-32e1-42eb-aac7-7348634db59f",
+            "id": "656b05fd-0a4a-4632-a077-db0cd152cca9",
             "ruleType": "colorByValue",
-            "ruleName": "AvailabilityPct",
+            "ruleName": "FailedJobs",
             "applyTo": "cells",
-            "column": "AvailabilityPct",
+            "column": "FailedJobs",
             "themeName": "red",
-            "maxValue": "99",
+            "maxValue": null,
+            "minValue": "0",
+            "reverseTheme": false,
+            "visualType": "table"
+          },
+          {
+            "id": "4e5b6210-8edb-4de3-a54d-e68836c7f253",
+            "ruleType": "colorByValue",
+            "ruleName": "Availability",
+            "applyTo": "cells",
+            "column": "Availability",
+            "themeName": "traffic-lights",
+            "maxValue": "100",
             "minValue": "0",
             "reverseTheme": true,
             "visualType": "table"
           },
           {
-            "id": "e7031d7e-a83b-4494-b6d0-c90279a7988a",
+            "id": "c0256183-ba68-4f08-b75a-66c7dbecbda1",
             "ruleType": "colorByValue",
-            "ruleName": "FailureCount",
+            "ruleName": "SuccessfulJobs",
             "applyTo": "cells",
-            "column": "FailureCount",
-            "themeName": "red",
+            "column": "SuccessfulJobs",
+            "themeName": "traffic-lights",
             "maxValue": null,
-            "minValue": "0",
+            "minValue": null,
+            "reverseTheme": true,
+            "visualType": "table"
+          },
+          {
+            "id": "1995784b-9360-4449-936e-f0a0a851a6db",
+            "ruleType": "colorByValue",
+            "ruleName": "TotalJobs",
+            "applyTo": "cells",
+            "column": "TotalJobs",
+            "themeName": "cold",
+            "maxValue": null,
+            "minValue": null,
             "reverseTheme": false,
             "visualType": "table"
           }
@@ -8150,7 +8198,7 @@
         "colorRulesDisabled": false,
         "colorRules": [
           {
-            "id": "6c77e8c3-fc62-4a6c-a06d-138313c4a723",
+            "id": "ce531bb6-d169-4178-8af0-19f5f836d48c",
             "ruleType": "colorByValue",
             "ruleName": "CoFailureCount",
             "applyTo": "cells",
@@ -8162,13 +8210,13 @@
             "visualType": "table"
           },
           {
-            "id": "9747057c-3803-45fd-abe5-7f100f4eabdf",
+            "id": "7336b24d-d61d-41ff-b406-8af9051eff0d",
             "ruleType": "colorByValue",
             "ruleName": "CorrelationScore",
             "applyTo": "cells",
             "column": "CorrelationScore",
             "themeName": "warm",
-            "maxValue": "1",
+            "maxValue": null,
             "minValue": "0",
             "reverseTheme": false,
             "visualType": "table"
@@ -8195,11 +8243,11 @@
         "colorRulesDisabled": false,
         "colorRules": [
           {
-            "id": "f842b365-7c30-48e5-9f2e-a676cf25735c",
+            "id": "d1992787-96e4-4358-87c8-0c000ae58f36",
             "ruleType": "colorByValue",
-            "ruleName": "ImpactScore",
+            "ruleName": "FailureCount",
             "applyTo": "cells",
-            "column": "ImpactScore",
+            "column": "FailureCount",
             "themeName": "red",
             "maxValue": null,
             "minValue": "0",
@@ -8207,12 +8255,12 @@
             "visualType": "table"
           },
           {
-            "id": "d4c8ec6f-d98d-4c52-af07-6da62da44de1",
+            "id": "16aae83f-d4b6-454d-8c1b-2039d3473a25",
             "ruleType": "colorByValue",
-            "ruleName": "DependentItems",
+            "ruleName": "ImpactScore",
             "applyTo": "cells",
-            "column": "DependentItems",
-            "themeName": "yellow",
+            "column": "ImpactScore",
+            "themeName": "red",
             "maxValue": null,
             "minValue": "0",
             "reverseTheme": false,
@@ -8240,7 +8288,7 @@
         "colorRulesDisabled": false,
         "colorRules": [
           {
-            "id": "f3906915-2149-4d47-aa7e-b25928ae58f9",
+            "id": "82ca52e1-0537-4b07-88bd-e7507de6fbfe",
             "ruleType": "colorByValue",
             "ruleName": "FailureCount",
             "applyTo": "cells",
@@ -8252,7 +8300,7 @@
             "visualType": "table"
           },
           {
-            "id": "804cf8c8-ad32-4f73-80f6-cfa0df43a39c",
+            "id": "c2841919-5904-41fc-83bd-a7c8be33bc97",
             "ruleType": "colorByValue",
             "ruleName": "ItemsAffected",
             "applyTo": "cells",
@@ -8444,15 +8492,51 @@
         "colorRulesDisabled": false,
         "colorRules": [
           {
-            "id": "ef36962b-da28-43d0-846f-52d8124e886e",
+            "id": "52d2621a-0e05-433c-8a87-56d92944ac7f",
             "ruleType": "colorByValue",
-            "ruleName": "AvailabilityPct",
+            "ruleName": "FailedJobs",
             "applyTo": "cells",
-            "column": "AvailabilityPct",
+            "column": "FailedJobs",
+            "themeName": "red",
+            "maxValue": null,
+            "minValue": "0",
+            "reverseTheme": false,
+            "visualType": "table"
+          },
+          {
+            "id": "c9cfe420-17be-4523-8baa-b0869759c231",
+            "ruleType": "colorByValue",
+            "ruleName": "Availability_Pct",
+            "applyTo": "cells",
+            "column": "Availability_Pct",
             "themeName": "traffic-lights",
             "maxValue": "100",
             "minValue": "0",
             "reverseTheme": true,
+            "visualType": "table"
+          },
+          {
+            "id": "d5213d23-15ab-4d91-bf65-bba40fe160c9",
+            "ruleType": "colorByValue",
+            "ruleName": "SuccessfulJobs",
+            "applyTo": "cells",
+            "column": "SuccessfulJobs",
+            "themeName": "traffic-lights",
+            "maxValue": null,
+            "minValue": null,
+            "reverseTheme": true,
+            "visualType": "table"
+          },
+          {
+            "id": "0d3685dd-56ee-4bd1-8a4b-a265aa7ac498",
+            "ruleType": "colorByValue",
+            "ruleName": "TotalJobs",
+            "applyTo": "cells",
+            "column": "TotalJobs",
+            "themeName": "cold",
+            "maxValue": null,
+            "minValue": null,
+            "reverseTheme": false,
             "visualType": "table"
           }
         ]
@@ -8581,11 +8665,23 @@
         "colorRulesDisabled": false,
         "colorRules": [
           {
-            "id": "4041f930-baf8-4024-99fa-380d51c279f0",
+            "id": "4ec63dfb-d83e-4bec-947b-2f4fdfb3cfb5",
             "ruleType": "colorByValue",
-            "ruleName": "CoOccurrences",
+            "ruleName": "Failures",
             "applyTo": "cells",
-            "column": "CoOccurrences",
+            "column": "Failures",
+            "themeName": "red",
+            "maxValue": null,
+            "minValue": "0",
+            "reverseTheme": false,
+            "visualType": "table"
+          },
+          {
+            "id": "07734206-a213-4920-a261-9c829c1f187a",
+            "ruleType": "colorByValue",
+            "ruleName": "CoFailureCount",
+            "applyTo": "cells",
+            "column": "CoFailureCount",
             "themeName": "red",
             "maxValue": null,
             "minValue": "0",
@@ -8652,11 +8748,11 @@
         "colorRulesDisabled": false,
         "colorRules": [
           {
-            "id": "ee0eb007-e269-4979-9b0d-57a40c1989b3",
+            "id": "2ad46845-e8c6-4f00-99d4-e0a1cc5f6485",
             "ruleType": "colorByValue",
-            "ruleName": "ImpactScore",
+            "ruleName": "Failures",
             "applyTo": "cells",
-            "column": "ImpactScore",
+            "column": "Failures",
             "themeName": "red",
             "maxValue": null,
             "minValue": "0",
@@ -8664,13 +8760,25 @@
             "visualType": "table"
           },
           {
-            "id": "03e9a048-a668-46af-8c29-072a0acdf3a8",
+            "id": "361401a2-29e6-4bee-a48b-219ba82ff166",
             "ruleType": "colorByValue",
-            "ruleName": "CorrelationScore",
+            "ruleName": "FailureCount",
             "applyTo": "cells",
-            "column": "CorrelationScore",
-            "themeName": "warm",
-            "maxValue": "1",
+            "column": "FailureCount",
+            "themeName": "red",
+            "maxValue": null,
+            "minValue": "0",
+            "reverseTheme": false,
+            "visualType": "table"
+          },
+          {
+            "id": "57372787-c859-4031-8551-e9602d1aecdd",
+            "ruleType": "colorByValue",
+            "ruleName": "CriticalityScore",
+            "applyTo": "cells",
+            "column": "CriticalityScore",
+            "themeName": "red",
+            "maxValue": null,
             "minValue": "0",
             "reverseTheme": false,
             "visualType": "table"
