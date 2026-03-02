@@ -7447,7 +7447,7 @@
       },
       "visualOptions": {
         "table__enableRenderLinks": true,
-        "colorRulesDisabled": true,
+        "colorRulesDisabled": false,
         "crossFilterDisabled": false,
         "drillthroughDisabled": false,
         "crossFilter": [],
@@ -7455,11 +7455,23 @@
         "table__renderLinks": [],
         "colorRules": [
           {
-            "id": "f4f52ce9-cc35-4407-a23b-02ead7716038",
+            "id": "ad7a33a4-e5b6-45b5-8eae-4a44455ffb3c",
             "ruleType": "colorByValue",
-            "ruleName": "FailureRate",
+            "ruleName": "Failures",
             "applyTo": "cells",
-            "column": "FailureRate",
+            "column": "Failures",
+            "themeName": "red",
+            "maxValue": null,
+            "minValue": "0",
+            "reverseTheme": false,
+            "visualType": "table"
+          },
+          {
+            "id": "57b32de6-b66b-4ee5-9d3b-b7629ee3be1b",
+            "ruleType": "colorByValue",
+            "ruleName": "FailRate",
+            "applyTo": "cells",
+            "column": "FailRate",
             "themeName": "red",
             "maxValue": "100",
             "minValue": "0",
@@ -7467,19 +7479,7 @@
             "visualType": "table"
           },
           {
-            "id": "31ca6c0f-a334-484e-9f15-3a770abdd47b",
-            "ruleType": "colorByValue",
-            "ruleName": "SuccessRate",
-            "applyTo": "cells",
-            "column": "SuccessRate",
-            "themeName": "traffic-lights",
-            "maxValue": "100",
-            "minValue": "0",
-            "reverseTheme": true,
-            "visualType": "table"
-          },
-          {
-            "id": "d6a3aa71-1ceb-41ed-af28-0a6c0a9121c7",
+            "id": "ad39b941-4d8f-421d-9b49-61911f7de100",
             "ruleType": "colorByValue",
             "ruleName": "TotalRuns",
             "applyTo": "cells",
@@ -7487,6 +7487,30 @@
             "themeName": "cold",
             "maxValue": null,
             "minValue": null,
+            "reverseTheme": false,
+            "visualType": "table"
+          },
+          {
+            "id": "9737ea6e-d22a-4b74-92d8-e5b4f41ebaac",
+            "ruleType": "colorByValue",
+            "ruleName": "AvgDurationMins",
+            "applyTo": "cells",
+            "column": "AvgDurationMins",
+            "themeName": "warm",
+            "maxValue": null,
+            "minValue": "0",
+            "reverseTheme": false,
+            "visualType": "table"
+          },
+          {
+            "id": "e21664d4-78e9-410e-8c00-5f21e8c36e5a",
+            "ruleType": "colorByValue",
+            "ruleName": "MaxDurationMins",
+            "applyTo": "cells",
+            "column": "MaxDurationMins",
+            "themeName": "warm",
+            "maxValue": null,
+            "minValue": "0",
             "reverseTheme": false,
             "visualType": "table"
           }
@@ -7815,11 +7839,23 @@
         "colorRulesDisabled": false,
         "colorRules": [
           {
-            "id": "fda7ba5d-2517-439b-905c-9e7773bd561b",
+            "id": "8473e5e8-4caa-4455-b2a8-8442b0465079",
             "ruleType": "colorByValue",
-            "ruleName": "AvgDuration",
+            "ruleName": "FailRate",
             "applyTo": "cells",
-            "column": "AvgDuration",
+            "column": "FailRate",
+            "themeName": "red",
+            "maxValue": "100",
+            "minValue": "0",
+            "reverseTheme": false,
+            "visualType": "table"
+          },
+          {
+            "id": "90ae67c9-da93-4d8a-8c73-3ce4c43b7f04",
+            "ruleType": "colorByValue",
+            "ruleName": "RunCount",
+            "applyTo": "cells",
+            "column": "RunCount",
             "themeName": "cold",
             "maxValue": null,
             "minValue": null,
@@ -7827,14 +7863,14 @@
             "visualType": "table"
           },
           {
-            "id": "e120367a-f7a3-4d8c-969b-7fb8e413fe2a",
+            "id": "bbe19b33-7ef0-438e-a935-25dac7acfd49",
             "ruleType": "colorByValue",
-            "ruleName": "P95Duration",
+            "ruleName": "AvgDurationMins",
             "applyTo": "cells",
-            "column": "P95Duration",
+            "column": "AvgDurationMins",
             "themeName": "warm",
             "maxValue": null,
-            "minValue": null,
+            "minValue": "0",
             "reverseTheme": false,
             "visualType": "table"
           }
@@ -7866,15 +7902,38 @@
         "table__renderLinks": [],
         "colorRules": [
           {
-            "id": "7ee2c8be-872d-4bd2-860a-a8db6399c6ec",
+            "id": "6382c1f1-34f8-49e5-8e12-80ca7438725d",
             "ruleType": "colorByValue",
-            "ruleName": "Duration",
+            "ruleName": "DurationMins",
             "applyTo": "cells",
-            "column": "Duration",
-            "themeName": "red",
+            "column": "DurationMins",
+            "themeName": "warm",
             "maxValue": null,
             "minValue": "0",
             "reverseTheme": false,
+            "visualType": "table"
+          },
+          {
+            "id": "141bdd4d-e492-43a5-881c-b37fa4150a34",
+            "ruleType": "colorByCondition",
+            "applyToColumn": "JobStatus",
+            "hideText": false,
+            "applyTo": "cells",
+            "conditions": [
+              {
+                "operator": "==",
+                "column": "JobStatus",
+                "values": [
+                  "Failed"
+                ]
+              }
+            ],
+            "chainingOperator": "and",
+            "colorStyle": "bold",
+            "color": "red",
+            "tag": "",
+            "icon": "warning",
+            "ruleName": "FailedStatusAlert",
             "visualType": "table"
           }
         ]
@@ -8100,26 +8159,38 @@
         "colorRulesDisabled": false,
         "colorRules": [
           {
-            "id": "ab7d9574-32e1-42eb-aac7-7348634db59f",
+            "id": "587525c2-c5d4-4607-ab98-5f18030738ed",
             "ruleType": "colorByValue",
-            "ruleName": "AvailabilityPct",
+            "ruleName": "FailedJobs",
             "applyTo": "cells",
-            "column": "AvailabilityPct",
+            "column": "FailedJobs",
             "themeName": "red",
-            "maxValue": "99",
+            "maxValue": null,
+            "minValue": "0",
+            "reverseTheme": false,
+            "visualType": "table"
+          },
+          {
+            "id": "a059ed0f-afd0-47c6-bc37-ba250c120db8",
+            "ruleType": "colorByValue",
+            "ruleName": "Availability",
+            "applyTo": "cells",
+            "column": "Availability",
+            "themeName": "traffic-lights",
+            "maxValue": "100",
             "minValue": "0",
             "reverseTheme": true,
             "visualType": "table"
           },
           {
-            "id": "e7031d7e-a83b-4494-b6d0-c90279a7988a",
+            "id": "4771f336-badb-4398-ae23-9f6e1d85f7da",
             "ruleType": "colorByValue",
-            "ruleName": "FailureCount",
+            "ruleName": "TotalJobs",
             "applyTo": "cells",
-            "column": "FailureCount",
-            "themeName": "red",
+            "column": "TotalJobs",
+            "themeName": "cold",
             "maxValue": null,
-            "minValue": "0",
+            "minValue": null,
             "reverseTheme": false,
             "visualType": "table"
           }
@@ -8543,15 +8614,39 @@
         "colorRulesDisabled": false,
         "colorRules": [
           {
-            "id": "ef36962b-da28-43d0-846f-52d8124e886e",
+            "id": "fe0f8e80-e5e5-49bd-876b-256d4e4ac6b2",
             "ruleType": "colorByValue",
-            "ruleName": "AvailabilityPct",
+            "ruleName": "Availability_Pct",
             "applyTo": "cells",
-            "column": "AvailabilityPct",
+            "column": "Availability_Pct",
             "themeName": "traffic-lights",
             "maxValue": "100",
             "minValue": "0",
             "reverseTheme": true,
+            "visualType": "table"
+          },
+          {
+            "id": "a9bccaa0-b128-4ced-858a-b6f75b871a08",
+            "ruleType": "colorByValue",
+            "ruleName": "FailedJobs",
+            "applyTo": "cells",
+            "column": "FailedJobs",
+            "themeName": "red",
+            "maxValue": null,
+            "minValue": "0",
+            "reverseTheme": false,
+            "visualType": "table"
+          },
+          {
+            "id": "0d81bce3-63dd-4fd2-90c9-c43caec0e8f5",
+            "ruleType": "colorByValue",
+            "ruleName": "TotalJobs",
+            "applyTo": "cells",
+            "column": "TotalJobs",
+            "themeName": "cold",
+            "maxValue": null,
+            "minValue": null,
+            "reverseTheme": false,
             "visualType": "table"
           }
         ]
@@ -8859,6 +8954,313 @@
           }
         ]
       }
+    },
+    {
+      "id": "ce5b6475-3930-4283-b670-0e9f8ad06a38",
+      "title": "Selected Filters Context",
+      "visualType": "table",
+      "pageId": "bcc25937-6f9d-4030-a56a-fbf6c547b430",
+      "layout": {
+        "x": 0,
+        "y": 0,
+        "width": 24,
+        "height": 4
+      },
+      "queryRef": {
+        "kind": "query",
+        "queryId": "5b42eb22-8bcf-466d-af24-843671b9397a"
+      },
+      "visualOptions": {}
+    },
+    {
+      "id": "b16bf506-9716-4079-af90-0c0f8b3acce0",
+      "title": "Workspace Health Scoreboard",
+      "visualType": "table",
+      "pageId": "bcc25937-6f9d-4030-a56a-fbf6c547b430",
+      "layout": {
+        "x": 0,
+        "y": 15,
+        "width": 24,
+        "height": 9
+      },
+      "queryRef": {
+        "kind": "query",
+        "queryId": "35132a4d-3b55-4fe2-a6c3-162b5938f385"
+      },
+      "visualOptions": {
+        "colorRulesDisabled": false,
+        "colorRules": [
+          {
+            "id": "e4fbdc79-fd5c-4617-a8c3-79f50ea082f1",
+            "ruleType": "colorByValue",
+            "ruleName": "Failures",
+            "applyTo": "cells",
+            "column": "Failures",
+            "themeName": "red",
+            "maxValue": null,
+            "minValue": "0",
+            "reverseTheme": false,
+            "visualType": "table"
+          },
+          {
+            "id": "761b8f1a-9b8f-445e-9482-88470e160d70",
+            "ruleType": "colorByValue",
+            "ruleName": "SuccessRate",
+            "applyTo": "cells",
+            "column": "SuccessRate",
+            "themeName": "traffic-lights",
+            "maxValue": "100",
+            "minValue": "0",
+            "reverseTheme": true,
+            "visualType": "table"
+          },
+          {
+            "id": "7b6961b5-be36-4c5a-8576-5f7dccec9d31",
+            "ruleType": "colorByValue",
+            "ruleName": "Runs",
+            "applyTo": "cells",
+            "column": "Runs",
+            "themeName": "cold",
+            "maxValue": null,
+            "minValue": null,
+            "reverseTheme": false,
+            "visualType": "table"
+          },
+          {
+            "id": "6c207c90-245a-4f0b-aef6-64ba73cb1dd7",
+            "ruleType": "colorByValue",
+            "ruleName": "P95DurationMins",
+            "applyTo": "cells",
+            "column": "P95DurationMins",
+            "themeName": "warm",
+            "maxValue": null,
+            "minValue": "0",
+            "reverseTheme": false,
+            "visualType": "table"
+          }
+        ]
+      }
+    },
+    {
+      "id": "66310ab6-9eda-4712-9452-d895513d1572",
+      "title": "Cross-Workspace Run/Failure Trend",
+      "visualType": "timechart",
+      "pageId": "bcc25937-6f9d-4030-a56a-fbf6c547b430",
+      "layout": {
+        "x": 0,
+        "y": 4,
+        "width": 24,
+        "height": 11
+      },
+      "queryRef": {
+        "kind": "query",
+        "queryId": "8a9941f1-cea2-4145-af16-540930330d3a"
+      },
+      "visualOptions": {}
+    },
+    {
+      "id": "a32e67c6-9ad1-45ad-8180-db812f97cc42",
+      "title": "Coverage Matrix (Workspace + ItemKind + JobType)",
+      "visualType": "table",
+      "pageId": "54acbac8-6ac1-4f16-a7af-77a3cda77b7a",
+      "layout": {
+        "x": 0,
+        "y": 0,
+        "width": 16,
+        "height": 10
+      },
+      "queryRef": {
+        "kind": "query",
+        "queryId": "8a5b6fee-bb34-4563-b8bf-00ad2d8ed06f"
+      },
+      "visualOptions": {
+        "colorRulesDisabled": false,
+        "colorRules": [
+          {
+            "id": "04c0017d-6506-4e0e-a007-707ba03cc511",
+            "ruleType": "colorByValue",
+            "ruleName": "Failures",
+            "applyTo": "cells",
+            "column": "Failures",
+            "themeName": "red",
+            "maxValue": null,
+            "minValue": "0",
+            "reverseTheme": false,
+            "visualType": "table"
+          },
+          {
+            "id": "94b29760-1263-480f-b801-e06af5269cd7",
+            "ruleType": "colorByValue",
+            "ruleName": "Runs",
+            "applyTo": "cells",
+            "column": "Runs",
+            "themeName": "cold",
+            "maxValue": null,
+            "minValue": null,
+            "reverseTheme": false,
+            "visualType": "table"
+          }
+        ]
+      }
+    },
+    {
+      "id": "98a250f9-6c1e-4861-851f-181c1775aae3",
+      "title": "Missing Supported Kinds per Workspace",
+      "visualType": "table",
+      "pageId": "54acbac8-6ac1-4f16-a7af-77a3cda77b7a",
+      "layout": {
+        "x": 16,
+        "y": 0,
+        "width": 8,
+        "height": 10
+      },
+      "queryRef": {
+        "kind": "query",
+        "queryId": "1456e575-55ab-43cc-a23e-2a599255a282"
+      },
+      "visualOptions": {}
+    },
+    {
+      "id": "e18b028d-3e26-4eaa-9a8a-ef960707de90",
+      "title": "Failure Hotspot Leaderboard",
+      "visualType": "table",
+      "pageId": "5fd010b3-10ec-47ae-ad27-92fe74cf69ef",
+      "layout": {
+        "x": 0,
+        "y": 0,
+        "width": 12,
+        "height": 10
+      },
+      "queryRef": {
+        "kind": "query",
+        "queryId": "00730de7-cc34-4452-a6fa-842cefb99585"
+      },
+      "visualOptions": {
+        "colorRulesDisabled": false,
+        "colorRules": [
+          {
+            "id": "bce19e33-1ade-446e-b3ea-3a23380d37c7",
+            "ruleType": "colorByValue",
+            "ruleName": "Failures",
+            "applyTo": "cells",
+            "column": "Failures",
+            "themeName": "red",
+            "maxValue": null,
+            "minValue": "0",
+            "reverseTheme": false,
+            "visualType": "table"
+          },
+          {
+            "id": "802e4dea-837b-4ec6-bed2-75d18e4a8883",
+            "ruleType": "colorByValue",
+            "ruleName": "FailRate",
+            "applyTo": "cells",
+            "column": "FailRate",
+            "themeName": "red",
+            "maxValue": "100",
+            "minValue": "0",
+            "reverseTheme": false,
+            "visualType": "table"
+          },
+          {
+            "id": "1e0f553f-582d-42ea-908e-8bf7225bac55",
+            "ruleType": "colorByValue",
+            "ruleName": "Runs",
+            "applyTo": "cells",
+            "column": "Runs",
+            "themeName": "cold",
+            "maxValue": null,
+            "minValue": null,
+            "reverseTheme": false,
+            "visualType": "table"
+          },
+          {
+            "id": "c90eab34-8d3c-4683-9f4f-45889110adc8",
+            "ruleType": "colorByValue",
+            "ruleName": "P95DurationMins",
+            "applyTo": "cells",
+            "column": "P95DurationMins",
+            "themeName": "warm",
+            "maxValue": null,
+            "minValue": "0",
+            "reverseTheme": false,
+            "visualType": "table"
+          }
+        ]
+      }
+    },
+    {
+      "id": "41018a7e-b768-4d5a-afec-5ba9d36d7986",
+      "title": "Long-Running Jobs",
+      "visualType": "table",
+      "pageId": "5fd010b3-10ec-47ae-ad27-92fe74cf69ef",
+      "layout": {
+        "x": 12,
+        "y": 0,
+        "width": 12,
+        "height": 10
+      },
+      "queryRef": {
+        "kind": "query",
+        "queryId": "aa7ad2a8-bda3-446e-8c57-6c9cf8d3a025"
+      },
+      "visualOptions": {
+        "colorRulesDisabled": false,
+        "colorRules": [
+          {
+            "id": "3f64f65a-9f78-4d78-bc64-04c8b7150d0a",
+            "ruleType": "colorByValue",
+            "ruleName": "DurationMins",
+            "applyTo": "cells",
+            "column": "DurationMins",
+            "themeName": "warm",
+            "maxValue": null,
+            "minValue": "0",
+            "reverseTheme": false,
+            "visualType": "table"
+          },
+          {
+            "id": "51b364db-9167-459b-925e-035cb7760a9b",
+            "ruleType": "colorByCondition",
+            "applyToColumn": "JobStatus",
+            "hideText": false,
+            "applyTo": "cells",
+            "conditions": [
+              {
+                "operator": "==",
+                "column": "JobStatus",
+                "values": [
+                  "Failed"
+                ]
+              }
+            ],
+            "chainingOperator": "and",
+            "colorStyle": "bold",
+            "color": "red",
+            "tag": "",
+            "icon": "warning",
+            "ruleName": "FailedStatusAlert",
+            "visualType": "table"
+          }
+        ]
+      }
+    },
+    {
+      "id": "e9b9b814-b798-4909-8d73-b02bf3831826",
+      "title": "Failure-Rate Trend by Workspace",
+      "visualType": "line",
+      "pageId": "5fd010b3-10ec-47ae-ad27-92fe74cf69ef",
+      "layout": {
+        "x": 0,
+        "y": 10,
+        "width": 24,
+        "height": 8
+      },
+      "queryRef": {
+        "kind": "query",
+        "queryId": "b94545d9-b4f9-438d-b23f-5cfe65e407e8"
+      },
+      "visualOptions": {}
     }
   ],
   "baseQueries": [
@@ -9830,6 +10232,18 @@
     {
       "id": "d8b097c3-7cbc-43f0-bd41-9100dfffe0dc",
       "name": "- IJ | Dependency Analysis"
+    },
+    {
+      "name": "MW | Workspace Command Center",
+      "id": "bcc25937-6f9d-4030-a56a-fbf6c547b430"
+    },
+    {
+      "name": "MW | Coverage & Gaps",
+      "id": "54acbac8-6ac1-4f16-a7af-77a3cda77b7a"
+    },
+    {
+      "name": "MW | Failures & Hotspots",
+      "id": "5fd010b3-10ec-47ae-ad27-92fe74cf69ef"
     },
     {
       "name": "Help",
@@ -11784,6 +12198,118 @@
       "text": "AllItemJobEventLogs()\n| top 1 by Timestamp\n| summarize IsAvailable = iif(count() > 0, \"Logs available\", \"Inactive\")",
       "id": "4350da9b-5344-45c5-b3b7-13d82b11acec",
       "usedVariables": []
+    },
+    {
+      "dataSource": {
+        "kind": "parameter",
+        "parameterId": "1e69cd40-8885-49cc-925b-b1457bb4f7e7"
+      },
+      "text": "let FinalJobs = AllItemJobEventLogs()\n| where Timestamp between (['_startTime']+totimespan(_utcOffset) .. ['_endTime']+totimespan(_utcOffset))\n| where isempty(['_WorkspaceName']) or WorkspaceName in (['_WorkspaceName'])\n| summarize arg_max(Timestamp, *) by JobInstanceId;\nFinalJobs\n| summarize LastSeen = max(Timestamp)\n| project\n    SelectedWorkspace = tostring(['_WorkspaceName']),\n    SelectedStartLocal = ['_startTime'] + totimespan(_utcOffset),\n    SelectedEndLocal = ['_endTime'] + totimespan(_utcOffset),\n    UtcOffset = _utcOffset,\n    LastSeen",
+      "id": "5b42eb22-8bcf-466d-af24-843671b9397a",
+      "usedVariables": [
+        "_WorkspaceName",
+        "_endTime",
+        "_startTime",
+        "_utcOffset"
+      ]
+    },
+    {
+      "dataSource": {
+        "kind": "parameter",
+        "parameterId": "1e69cd40-8885-49cc-925b-b1457bb4f7e7"
+      },
+      "text": "let FinalJobs = AllItemJobEventLogs()\n| where Timestamp between (['_startTime']+totimespan(_utcOffset) .. ['_endTime']+totimespan(_utcOffset))\n| where isempty(['_WorkspaceName']) or WorkspaceName in (['_WorkspaceName'])\n| summarize arg_max(Timestamp, *) by JobInstanceId;\nFinalJobs\n| summarize\n    Runs = count(),\n    Success = countif(JobStatus == \"Completed\"),\n    Failures = countif(JobStatus == \"Failed\"),\n    InProgress = countif(JobStatus == \"InProgress\"),\n    P95DurationMins = round(percentile(DurationMs, 95) / 60000.0, 2),\n    LastSeen = max(Timestamp)\n  by WorkspaceName\n| extend SuccessRate = round(100.0 * todouble(Success) / iff(Runs == 0, 1.0, todouble(Runs)), 2)\n| order by Failures desc, Runs desc",
+      "id": "35132a4d-3b55-4fe2-a6c3-162b5938f385",
+      "usedVariables": [
+        "_WorkspaceName",
+        "_endTime",
+        "_startTime",
+        "_utcOffset"
+      ]
+    },
+    {
+      "dataSource": {
+        "kind": "parameter",
+        "parameterId": "1e69cd40-8885-49cc-925b-b1457bb4f7e7"
+      },
+      "text": "let FinalJobs = AllItemJobEventLogs()\n| where Timestamp between (['_startTime']+totimespan(_utcOffset) .. ['_endTime']+totimespan(_utcOffset))\n| where isempty(['_WorkspaceName']) or WorkspaceName in (['_WorkspaceName'])\n| summarize arg_max(Timestamp, *) by JobInstanceId;\nFinalJobs\n| extend EffectiveTime = coalesce(JobEndTime, JobStartTime, Timestamp)\n| summarize\n    Runs = count(),\n    Failures = countif(JobStatus == \"Failed\")\n  by WorkspaceName, bin(EffectiveTime, 1h)\n| project Timestamp = EffectiveTime, WorkspaceName, Runs, Failures\n| order by Timestamp asc",
+      "id": "8a9941f1-cea2-4145-af16-540930330d3a",
+      "usedVariables": [
+        "_WorkspaceName",
+        "_endTime",
+        "_startTime",
+        "_utcOffset"
+      ]
+    },
+    {
+      "dataSource": {
+        "kind": "parameter",
+        "parameterId": "1e69cd40-8885-49cc-925b-b1457bb4f7e7"
+      },
+      "text": "let FinalJobs = AllItemJobEventLogs()\n| where Timestamp between (['_startTime']+totimespan(_utcOffset) .. ['_endTime']+totimespan(_utcOffset))\n| where isempty(['_WorkspaceName']) or WorkspaceName in (['_WorkspaceName'])\n| summarize arg_max(Timestamp, *) by JobInstanceId;\nFinalJobs\n| summarize\n    Runs = count(),\n    Failures = countif(JobStatus == \"Failed\"),\n    LastSeen = max(Timestamp)\n  by WorkspaceName, ItemKind, JobType\n| order by WorkspaceName asc, ItemKind asc, JobType asc",
+      "id": "8a5b6fee-bb34-4563-b8bf-00ad2d8ed06f",
+      "usedVariables": [
+        "_WorkspaceName",
+        "_endTime",
+        "_startTime",
+        "_utcOffset"
+      ]
+    },
+    {
+      "dataSource": {
+        "kind": "parameter",
+        "parameterId": "1e69cd40-8885-49cc-925b-b1457bb4f7e7"
+      },
+      "text": "let FinalJobs = AllItemJobEventLogs()\n| where Timestamp between (['_startTime']+totimespan(_utcOffset) .. ['_endTime']+totimespan(_utcOffset))\n| where isempty(['_WorkspaceName']) or WorkspaceName in (['_WorkspaceName'])\n| summarize arg_max(Timestamp, *) by JobInstanceId;\nlet SupportedKinds = datatable(ItemKind:string) [\"Pipeline\",\"Notebook\",\"CopyJob\",\"Lakehouse\",\"Warehouse\"];\nlet SeenKinds = FinalJobs\n| summarize Runs = count() by WorkspaceName, ItemKind;\nlet Workspaces = FinalJobs | summarize by WorkspaceName;\nWorkspaces\n| extend JoinKey = 1\n| join kind=inner (SupportedKinds | extend JoinKey = 1) on JoinKey\n| project WorkspaceName, ItemKind\n| join kind=leftouter (SeenKinds) on WorkspaceName, ItemKind\n| where isnull(Runs)\n| project WorkspaceName, MissingItemKind = ItemKind, GapReason = \"No final-status runs in selected time\"\n| order by WorkspaceName asc, MissingItemKind asc",
+      "id": "1456e575-55ab-43cc-a23e-2a599255a282",
+      "usedVariables": [
+        "_WorkspaceName",
+        "_endTime",
+        "_startTime",
+        "_utcOffset"
+      ]
+    },
+    {
+      "dataSource": {
+        "kind": "parameter",
+        "parameterId": "1e69cd40-8885-49cc-925b-b1457bb4f7e7"
+      },
+      "text": "let FinalJobs = AllItemJobEventLogs()\n| where Timestamp between (['_startTime']+totimespan(_utcOffset) .. ['_endTime']+totimespan(_utcOffset))\n| where isempty(['_WorkspaceName']) or WorkspaceName in (['_WorkspaceName'])\n| summarize arg_max(Timestamp, *) by JobInstanceId;\nFinalJobs\n| summarize\n    Runs = count(),\n    Failures = countif(JobStatus == \"Failed\"),\n    FailRate = round(100.0 * todouble(countif(JobStatus == \"Failed\")) / iff(count() == 0, 1.0, todouble(count())), 2),\n    P95DurationMins = round(percentile(DurationMs, 95) / 60000.0, 2),\n    LastSeen = max(Timestamp)\n  by WorkspaceName, ItemName, ItemKind, ItemId\n| where Failures > 0\n| order by Failures desc, FailRate desc\n| take 50",
+      "id": "00730de7-cc34-4452-a6fa-842cefb99585",
+      "usedVariables": [
+        "_WorkspaceName",
+        "_endTime",
+        "_startTime",
+        "_utcOffset"
+      ]
+    },
+    {
+      "dataSource": {
+        "kind": "parameter",
+        "parameterId": "1e69cd40-8885-49cc-925b-b1457bb4f7e7"
+      },
+      "text": "let FinalJobs = AllItemJobEventLogs()\n| where Timestamp between (['_startTime']+totimespan(_utcOffset) .. ['_endTime']+totimespan(_utcOffset))\n| where isempty(['_WorkspaceName']) or WorkspaceName in (['_WorkspaceName'])\n| summarize arg_max(Timestamp, *) by JobInstanceId;\nFinalJobs\n| extend DurationMins = round(DurationMs / 60000.0, 2)\n| project WorkspaceName, ItemName, ItemKind, JobType, JobStatus, DurationMins, Timestamp, JobStartTime, JobEndTime, JobInstanceId\n| order by DurationMins desc\n| take 100",
+      "id": "aa7ad2a8-bda3-446e-8c57-6c9cf8d3a025",
+      "usedVariables": [
+        "_WorkspaceName",
+        "_endTime",
+        "_startTime",
+        "_utcOffset"
+      ]
+    },
+    {
+      "dataSource": {
+        "kind": "parameter",
+        "parameterId": "1e69cd40-8885-49cc-925b-b1457bb4f7e7"
+      },
+      "text": "let FinalJobs = AllItemJobEventLogs()\n| where Timestamp between (['_startTime']+totimespan(_utcOffset) .. ['_endTime']+totimespan(_utcOffset))\n| where isempty(['_WorkspaceName']) or WorkspaceName in (['_WorkspaceName'])\n| summarize arg_max(Timestamp, *) by JobInstanceId;\nFinalJobs\n| extend EffectiveTime = coalesce(JobEndTime, JobStartTime, Timestamp)\n| summarize\n    Runs = count(),\n    Failures = countif(JobStatus == \"Failed\")\n  by WorkspaceName, bin(EffectiveTime, 1h)\n| extend FailureRatePct = round(100.0 * todouble(Failures) / iff(Runs == 0, 1.0, todouble(Runs)), 2)\n| project Timestamp = EffectiveTime, WorkspaceName, Runs, Failures, FailureRatePct\n| order by Timestamp asc",
+      "id": "b94545d9-b4f9-438d-b23f-5cfe65e407e8",
+      "usedVariables": [
+        "_WorkspaceName",
+        "_endTime",
+        "_startTime",
+        "_utcOffset"
+      ]
     },
     {
       "id": "f7c6ddda-c8bc-4555-82b9-c46ea78b39a0",
