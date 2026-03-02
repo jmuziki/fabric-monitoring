@@ -7534,9 +7534,9 @@
       "visualType": "line",
       "pageId": "d14b1d51-05b9-4711-bd0b-a11eedc0b5ec",
       "layout": {
-        "x": 16,
-        "y": 1,
-        "width": 8,
+        "x": 0,
+        "y": 5,
+        "width": 13,
         "height": 6
       },
       "queryRef": {
@@ -7553,9 +7553,9 @@
       "visualType": "bar",
       "pageId": "d14b1d51-05b9-4711-bd0b-a11eedc0b5ec",
       "layout": {
-        "x": 0,
+        "x": 13,
         "y": 5,
-        "width": 16,
+        "width": 11,
         "height": 6
       },
       "queryRef": {
@@ -8228,7 +8228,7 @@
       "pageId": "d8b097c3-7cbc-43f0-bd41-9100dfffe0dc",
       "layout": {
         "x": 0,
-        "y": 13,
+        "y": 21,
         "width": 24,
         "height": 8
       },
@@ -8569,7 +8569,7 @@
       "pageId": "d8b097c3-7cbc-43f0-bd41-9100dfffe0dc",
       "layout": {
         "x": 0,
-        "y": 21,
+        "y": 29,
         "width": 24,
         "height": 8
       },
@@ -8623,7 +8623,7 @@
       "pageId": "d8b097c3-7cbc-43f0-bd41-9100dfffe0dc",
       "layout": {
         "x": 0,
-        "y": 29,
+        "y": 37,
         "width": 24,
         "height": 6
       },
@@ -8639,9 +8639,9 @@
       "visualType": "table",
       "pageId": "d8b097c3-7cbc-43f0-bd41-9100dfffe0dc",
       "layout": {
-        "x": 18,
-        "y": 1,
-        "width": 6,
+        "x": 0,
+        "y": 13,
+        "width": 24,
         "height": 8
       },
       "queryRef": {
@@ -11512,7 +11512,7 @@
         "kind": "parameter",
         "parameterId": "1e69cd40-8885-49cc-925b-b1457bb4f7e7"
       },
-      "text": "ItemJobEventLogs\n| where Timestamp between (['_startTime']+totimespan(_utcOffset) .. ['_endTime']+totimespan(_utcOffset))\n| where isempty(['_WorkspaceName']) or WorkspaceName in (['_WorkspaceName'])\n| summarize \n    Total = count(),\n    Success = countif(JobStatus == \"Completed\")\n  by bin(Timestamp, 1h)\n| extend Availability = round(100.0 * Success / Total, 2)\n| project Timestamp, Availability",
+      "text": "let FinalJobs = ItemJobEventLogs\n| where Timestamp between (['_startTime']+totimespan(_utcOffset) .. ['_endTime']+totimespan(_utcOffset))\n| where isempty(['_WorkspaceName']) or WorkspaceName in (['_WorkspaceName'])\n| summarize arg_max(Timestamp, *) by JobInstanceId;\nFinalJobs\n| extend EffectiveTime = coalesce(JobEndTime, JobStartTime, Timestamp)\n| summarize\n    Total = count(),\n    Success = countif(JobStatus == \"Completed\")\n  by bin(EffectiveTime, 1h)\n| extend Availability = round(100.0 * Success / Total, 2)\n| project Timestamp = EffectiveTime, Availability",
       "id": "5618ad52-6d60-4b9e-9b87-9eb08e925bf4",
       "usedVariables": [
         "_WorkspaceName",
@@ -11930,7 +11930,7 @@
         "kind": "parameter",
         "parameterId": "1e69cd40-8885-49cc-925b-b1457bb4f7e7"
       },
-      "text": "ItemJobEventLogs\n| where Timestamp between (['_startTime']+totimespan(_utcOffset) .. ['_endTime']+totimespan(_utcOffset))\n| where isempty(['_WorkspaceName']) or WorkspaceName in (['_WorkspaceName'])\n| summarize \n TotalJobs = count(),\n SucceededJobs = countif(JobStatus == \"Completed\"),\n FailedJobs = countif(JobStatus == \"Failed\"),\n InProgressJobs = countif(JobStatus == \"InProgress\"),\n AvgDurationMins = round(avg(DurationMs) / 60000.0, 2),\n P95DurationMins = round(percentile(DurationMs, 95) / 60000.0, 2)\n by WorkspaceName",
+      "text": "let FinalJobs = ItemJobEventLogs\n| where Timestamp between (['_startTime']+totimespan(_utcOffset) .. ['_endTime']+totimespan(_utcOffset))\n| where isempty(['_WorkspaceName']) or WorkspaceName in (['_WorkspaceName'])\n| summarize arg_max(Timestamp, *) by JobInstanceId;\nFinalJobs\n| summarize\n TotalJobs = count(),\n SucceededJobs = countif(JobStatus == \"Completed\"),\n FailedJobs = countif(JobStatus == \"Failed\"),\n InProgressJobs = countif(JobStatus == \"InProgress\"),\n AvgDurationMins = round(avg(DurationMs) / 60000.0, 2),\n P95DurationMins = round(percentile(DurationMs, 95) / 60000.0, 2)\n by WorkspaceName",
       "usedVariables": [
         "_WorkspaceName",
         "_endTime",
@@ -11944,7 +11944,7 @@
         "kind": "parameter",
         "parameterId": "1e69cd40-8885-49cc-925b-b1457bb4f7e7"
       },
-      "text": "ItemJobEventLogs\n| where Timestamp between (['_startTime']+totimespan(_utcOffset) .. ['_endTime']+totimespan(_utcOffset))\n| where isempty(['_WorkspaceName']) or WorkspaceName in (['_WorkspaceName'])\n| summarize \n TotalJobs = count(),\n FailedJobs = countif(JobStatus == \"Failed\"),\n AvgDurationMins = round(avg(DurationMs) / 60000.0, 2)\n by ItemKind, JobType\n| order by TotalJobs desc",
+      "text": "let FinalJobs = ItemJobEventLogs\n| where Timestamp between (['_startTime']+totimespan(_utcOffset) .. ['_endTime']+totimespan(_utcOffset))\n| where isempty(['_WorkspaceName']) or WorkspaceName in (['_WorkspaceName'])\n| summarize arg_max(Timestamp, *) by JobInstanceId;\nFinalJobs\n| summarize\n TotalJobs = count(),\n FailedJobs = countif(JobStatus == \"Failed\"),\n AvgDurationMins = round(avg(DurationMs) / 60000.0, 2)\n by ItemKind, JobType\n| order by TotalJobs desc",
       "usedVariables": [
         "_WorkspaceName",
         "_endTime",
@@ -11958,7 +11958,7 @@
         "kind": "parameter",
         "parameterId": "1e69cd40-8885-49cc-925b-b1457bb4f7e7"
       },
-      "text": "let Duration = _endTime - _startTime;\nlet BinSize = case(Duration >= 7d, 1d, Duration > 1d, 1h, Duration > 6h, 10m, Duration > 1h, 1m, 1m);\nItemJobEventLogs\n| where Timestamp between (['_startTime']+totimespan(_utcOffset) .. ['_endTime']+totimespan(_utcOffset))\n| where isempty(['_WorkspaceName']) or WorkspaceName in (['_WorkspaceName'])\n| summarize \n    JobCount = count(),\n    FailCount = countif(JobStatus == \"Failed\")\n  by bin(Timestamp, BinSize), ItemKind",
+      "text": "let Duration = _endTime - _startTime;\nlet BinSize = case(Duration >= 7d, 1d, Duration > 1d, 1h, Duration > 6h, 10m, Duration > 1h, 1m, 1m);\nlet FinalJobs = ItemJobEventLogs\n| where Timestamp between (['_startTime']+totimespan(_utcOffset) .. ['_endTime']+totimespan(_utcOffset))\n| where isempty(['_WorkspaceName']) or WorkspaceName in (['_WorkspaceName'])\n| summarize arg_max(Timestamp, *) by JobInstanceId;\nFinalJobs\n| extend EffectiveTime = coalesce(JobEndTime, JobStartTime, Timestamp)\n| summarize\n    JobCount = count(),\n    FailCount = countif(JobStatus == \"Failed\")\n  by bin(EffectiveTime, BinSize), ItemKind\n| project Timestamp = EffectiveTime, JobCount, FailCount, ItemKind",
       "usedVariables": [
         "_WorkspaceName",
         "_endTime",
@@ -11986,7 +11986,7 @@
         "kind": "parameter",
         "parameterId": "1e69cd40-8885-49cc-925b-b1457bb4f7e7"
       },
-      "text": "ItemJobEventLogs\n| where Timestamp between (['_startTime']+totimespan(_utcOffset) .. ['_endTime']+totimespan(_utcOffset))\n| where isempty(['_WorkspaceName']) or WorkspaceName in (['_WorkspaceName'])\n| summarize \n TotalRuns = count(),\n Failures = countif(JobStatus == \"Failed\"),\n AvgDurationMins = round(avg(DurationMs) / 60000.0, 2),\n MaxDurationMins = round(max(DurationMs) / 60000.0, 2),\n FailRate = round(100.0 * countif(JobStatus == \"Failed\") / count(), 2)\n by ItemName, ItemKind, ItemId\n| order by TotalRuns desc\n| take 50",
+      "text": "let FinalJobs = ItemJobEventLogs\n| where Timestamp between (['_startTime']+totimespan(_utcOffset) .. ['_endTime']+totimespan(_utcOffset))\n| where isempty(['_WorkspaceName']) or WorkspaceName in (['_WorkspaceName'])\n| summarize arg_max(Timestamp, *) by JobInstanceId;\nFinalJobs\n| summarize\n TotalRuns = count(),\n Failures = countif(JobStatus == \"Failed\"),\n AvgDurationMins = round(avg(DurationMs) / 60000.0, 2),\n MaxDurationMins = round(max(DurationMs) / 60000.0, 2),\n FailRate = round(100.0 * countif(JobStatus == \"Failed\") / count(), 2)\n by ItemName, ItemKind, ItemId\n| order by TotalRuns desc\n| take 50",
       "usedVariables": [
         "_WorkspaceName",
         "_endTime",
@@ -12000,7 +12000,7 @@
         "kind": "parameter",
         "parameterId": "1e69cd40-8885-49cc-925b-b1457bb4f7e7"
       },
-      "text": "ItemJobEventLogs\n| where Timestamp between (['_startTime']+totimespan(_utcOffset) .. ['_endTime']+totimespan(_utcOffset))\n| where isempty(['_WorkspaceName']) or WorkspaceName in (['_WorkspaceName'])\n| summarize \n RunCount = count(),\n AvgDurationMins = round(avg(DurationMs) / 60000.0, 2),\n FailRate = round(100.0 * countif(JobStatus == \"Failed\") / count(), 2)\n by JobInvokeType, ItemKind",
+      "text": "let FinalJobs = ItemJobEventLogs\n| where Timestamp between (['_startTime']+totimespan(_utcOffset) .. ['_endTime']+totimespan(_utcOffset))\n| where isempty(['_WorkspaceName']) or WorkspaceName in (['_WorkspaceName'])\n| summarize arg_max(Timestamp, *) by JobInstanceId;\nFinalJobs\n| summarize\n RunCount = count(),\n AvgDurationMins = round(avg(DurationMs) / 60000.0, 2),\n FailRate = round(100.0 * countif(JobStatus == \"Failed\") / count(), 2)\n by JobInvokeType, ItemKind",
       "usedVariables": [
         "_WorkspaceName",
         "_endTime",
@@ -12014,7 +12014,7 @@
         "kind": "parameter",
         "parameterId": "1e69cd40-8885-49cc-925b-b1457bb4f7e7"
       },
-      "text": "ItemJobEventLogs\n| where Timestamp between (['_startTime']+totimespan(_utcOffset) .. ['_endTime']+totimespan(_utcOffset))\n| where isempty(['_WorkspaceName']) or WorkspaceName in (['_WorkspaceName'])\n| summarize \n TotalJobs = count(),\n SuccessfulJobs = countif(JobStatus == \"Completed\"),\n FailedJobs = countif(JobStatus == \"Failed\"),\n TotalDurationMins = round(sum(DurationMs) / 60000.0, 2)\n by ItemKind, ItemName\n| extend \n Availability = round(100.0 * SuccessfulJobs / TotalJobs, 2),\n AvgDurationMins = round(TotalDurationMins / TotalJobs, 2)\n| where TotalJobs >= 5",
+      "text": "let FinalJobs = ItemJobEventLogs\n| where Timestamp between (['_startTime']+totimespan(_utcOffset) .. ['_endTime']+totimespan(_utcOffset))\n| where isempty(['_WorkspaceName']) or WorkspaceName in (['_WorkspaceName'])\n| summarize arg_max(Timestamp, *) by JobInstanceId;\nFinalJobs\n| summarize\n TotalJobs = count(),\n SuccessfulJobs = countif(JobStatus == \"Completed\"),\n FailedJobs = countif(JobStatus == \"Failed\"),\n TotalDurationMins = round(sum(DurationMs) / 60000.0, 2)\n by ItemKind, ItemName\n| extend\n Availability = round(100.0 * SuccessfulJobs / TotalJobs, 2),\n AvgDurationMins = round(TotalDurationMins / TotalJobs, 2)\n| where TotalJobs >= 5",
       "usedVariables": [
         "_WorkspaceName",
         "_endTime",
