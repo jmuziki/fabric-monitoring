@@ -9,16 +9,6 @@
             | where Timestamp > ago(30d)
             | extend Workspace = "Alpha"
         ),
-        // (
-        //     cluster('https://trd-822mxvyzxqs4eq1wjd.z3.kusto.fabric.microsoft.com').database('Monitoring Eventhouse').ItemJobEventLogs
-        //     | where Timestamp > ago(30d)
-        //     | extend Workspace = "Pv2"
-        // ),
-        (
-            cluster('https://trd-3eafpxpagejm0nuw4z.z0.kusto.fabric.microsoft.com').database('Monitoring Eventhouse').ItemJobEventLogs
-            | where Timestamp > ago(30d)
-            | extend Workspace = "Dev"
-        ),
         (
             cluster('https://trd-aj2sms35x185rsbm9f.z4.kusto.fabric.microsoft.com').database('Monitoring Eventhouse').ItemJobEventLogs
             | where Timestamp > ago(30d)
@@ -41,16 +31,6 @@
             cluster('https://trd-e1bkwnx6evnruyg5jn.z6.kusto.fabric.microsoft.com').database('Monitoring Eventhouse').SemanticModelLogs
             | where Timestamp > ago(30d)
             | extend Workspace = "Alpha"
-        ),
-        (
-            cluster('https://trd-822mxvyzxqs4eq1wjd.z3.kusto.fabric.microsoft.com').database('Monitoring Eventhouse').SemanticModelLogs
-            | where Timestamp > ago(30d)
-            | extend Workspace = "Pv2"
-        ),
-        (
-            cluster('https://trd-3eafpxpagejm0nuw4z.z0.kusto.fabric.microsoft.com').database('Monitoring Eventhouse').SemanticModelLogs
-            | where Timestamp > ago(30d)
-            | extend Workspace = "Dev"
         ),
         (
             cluster('https://trd-aj2sms35x185rsbm9f.z4.kusto.fabric.microsoft.com').database('Monitoring Eventhouse').SemanticModelLogs
@@ -76,16 +56,6 @@
             | extend Workspace = "Alpha"
         ),
         (
-            cluster('https://trd-822mxvyzxqs4eq1wjd.z3.kusto.fabric.microsoft.com').database('Monitoring Eventhouse').EventhouseQueryLogs
-            | where Timestamp > ago(30d)
-            | extend Workspace = "Pv2"
-        ),
-        (
-            cluster('https://trd-3eafpxpagejm0nuw4z.z0.kusto.fabric.microsoft.com').database('Monitoring Eventhouse').EventhouseQueryLogs
-            | where Timestamp > ago(30d)
-            | extend Workspace = "Dev"
-        ),
-        (
             cluster('https://trd-aj2sms35x185rsbm9f.z4.kusto.fabric.microsoft.com').database('Monitoring Eventhouse').EventhouseQueryLogs
             | where Timestamp > ago(30d)
             | extend Workspace = "Delta"
@@ -107,16 +77,6 @@
             cluster('https://trd-e1bkwnx6evnruyg5jn.z6.kusto.fabric.microsoft.com').database('Monitoring Eventhouse').EventhouseMetrics
             | where Timestamp > ago(30d)
             | extend Workspace = "Alpha"
-        ),
-        (
-            cluster('https://trd-822mxvyzxqs4eq1wjd.z3.kusto.fabric.microsoft.com').database('Monitoring Eventhouse').EventhouseMetrics
-            | where Timestamp > ago(30d)
-            | extend Workspace = "Pv2"
-        ),
-        (
-            cluster('https://trd-3eafpxpagejm0nuw4z.z0.kusto.fabric.microsoft.com').database('Monitoring Eventhouse').EventhouseMetrics
-            | where Timestamp > ago(30d)
-            | extend Workspace = "Dev"
         ),
         (
             cluster('https://trd-aj2sms35x185rsbm9f.z4.kusto.fabric.microsoft.com').database('Monitoring Eventhouse').EventhouseMetrics
