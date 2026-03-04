@@ -7387,6 +7387,7 @@
         "queryId": "0fdea72c-be1c-45f7-814f-542adb1a6e94"
       },
       "visualOptions": {
+        "colorRulesDisabled": false,
         "colorRules": [
           {
             "id": "9d167bb4-ae5a-45d4-9962-00c0ad93857c",
@@ -7424,8 +7425,7 @@
             "reverseTheme": false,
             "visualType": "table"
           }
-        ],
-        "colorRulesDisabled": false
+        ]
       }
     },
     {
@@ -9767,24 +9767,6 @@
       "name": "Alpha",
       "clusterUri": "https://trd-e1bkwnx6evnruyg5jn.z6.kusto.fabric.microsoft.com",
       "database": "fdf1d9aa-8c64-4f80-ba9f-84628da165d2",
-      "workspace": "00000000-0000-0000-0000-000000000000",
-      "scopeId": "kusto-trident"
-    },
-    {
-      "kind": "kusto-trident",
-      "id": "afe37b29-730a-443f-85d1-d59f8a9f77c7",
-      "name": "Dev",
-      "clusterUri": "https://trd-3eafpxpagejm0nuw4z.z0.kusto.fabric.microsoft.com",
-      "database": "1d6068e7-bfe0-46e6-83ca-b09203095f4e",
-      "workspace": "00000000-0000-0000-0000-000000000000",
-      "scopeId": "kusto-trident"
-    },
-    {
-      "kind": "kusto-trident",
-      "id": "7bbd581f-ebf9-429e-a166-df44ce583db5",
-      "name": "Office",
-      "clusterUri": "https://trd-822mxvyzxqs4eq1wjd.z3.kusto.fabric.microsoft.com",
-      "database": "343b6580-4a53-4e8d-81e9-79cbf8dcac2d",
       "workspace": "00000000-0000-0000-0000-000000000000",
       "scopeId": "kusto-trident"
     },
