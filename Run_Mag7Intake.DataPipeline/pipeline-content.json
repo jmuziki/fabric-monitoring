@@ -15,6 +15,35 @@
           "secureOutput": false
         },
         "name": "RunNotebook",
+        "dependsOn": [
+          {
+            "activity": "Run_Load_StockPrices",
+            "dependencyConditions": [
+              "Completed"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "InvokePipeline",
+        "typeProperties": {
+          "parameters": {},
+          "waitOnCompletion": true,
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "pipelineId": "d7dfe9ff-3131-80ae-431b-c9fc4e167687",
+          "operationType": "InvokeFabricPipeline"
+        },
+        "externalReferences": {
+          "connection": "243a946f-dbc3-497c-9cef-b1908c3cfc1f"
+        },
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureInput": false,
+          "secureOutput": false
+        },
+        "name": "Run_Load_StockPrices",
         "dependsOn": []
       }
     ]
