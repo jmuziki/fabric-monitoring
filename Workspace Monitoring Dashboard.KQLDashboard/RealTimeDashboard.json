@@ -8995,7 +8995,7 @@
       "description": "Fabric Workspace",
       "defaultValue": {
         "kind": "dataSource",
-        "dataSourceId": "d2c4b4cc-9e64-4955-b7b0-31828bca2058"
+        "dataSourceId": "f03e11cc-ca6e-4f75-8bab-ffee10333fc2"
       },
       "dataSource": {
         "kind": "dataSource",
