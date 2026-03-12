@@ -1,0 +1,12 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Eventstream",
+    "displayName": "Stocks_Eventstream_Agent",
+    "description": "Daily burst stock sample stream for demo"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "03100f94-7e6b-aaf4-4c1e-c023c676641d"
+  }
+}

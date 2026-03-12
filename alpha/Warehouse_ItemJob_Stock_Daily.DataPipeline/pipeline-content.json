@@ -1,0 +1,33 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "name": "Run Stock Warehouse Sproc",
+        "type": "SqlServerStoredProcedure",
+        "dependsOn": [],
+        "policy": {
+          "timeout": "0.12:00:00",
+          "retry": 0,
+          "retryIntervalInSeconds": 30,
+          "secureOutput": false,
+          "secureInput": false
+        },
+        "typeProperties": {
+          "storedProcedureName": "[stock].[usp_itemjob_stock_daily]"
+        },
+        "linkedService": {
+          "name": "Warehouse",
+          "properties": {
+            "annotations": [],
+            "type": "DataWarehouse",
+            "typeProperties": {
+              "endpoint": "x6eps4xrq2xudenlfv6naeo3i4-fvvezayp4hrefcwamyc2luyub4.msit-datawarehouse.fabric.microsoft.com",
+              "artifactId": "b4d4f36c-844f-46ac-9c4b-948c1671e665",
+              "workspaceId": "834c6a2d-e10f-42e2-8ac0-6605a5d3140f"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

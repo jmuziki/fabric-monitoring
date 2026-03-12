@@ -47,7 +47,7 @@
           {
             "activity": "Intake",
             "dependencyConditions": [
-              "Completed"
+              "Succeeded"
             ]
           }
         ]
