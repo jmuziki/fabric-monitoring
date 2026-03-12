@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "Run_Mag7Intake"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "f09e5205-0d44-874f-428d-8aad9eacd829"
+  }
+}
