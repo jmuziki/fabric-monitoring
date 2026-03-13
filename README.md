@@ -6,8 +6,8 @@ Monitoring utilities for Microsoft Fabric workspaces
 ## Real-Time Dashboards
 Links to `dashboard.json` template files:
 
-- [Single Workspace](alpha/Workspace%20Monitoring%20Dashboard.KQLDashboard/RealTimeDashboard.json)
-- [Multiple Workspaces](beta/Multi-Workspace%20Hub.KQLDashboard/RealTimeDashboard.json)
+- [Single Workspace](alpha%20workspace/Workspace%20Monitoring%20Dashboard.KQLDashboard/RealTimeDashboard.json)
+- [Multiple Workspaces](beta%20workspace/Multi-Workspace%20Hub.KQLDashboard/RealTimeDashboard.json)
 
 #### Import instructions:
 1. Edit dashboard.
@@ -16,7 +16,7 @@ Links to `dashboard.json` template files:
 
 ###
 
-![alt text](image.png)
+![alt text](.assets/image.png)
 
 ###
 
